@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./we-endurance.css";
 
 const WA_NUMBER = "5215548800849"; // ← Reemplaza con el número real de WhatsApp
@@ -13,6 +13,7 @@ export default function App() {
       <About />
       <CoachBio />
       <Events />
+      <Gallery />
       <Results />
       <Partners />
       <Contact />
@@ -35,8 +36,8 @@ function Navbar() {
   return (
     <nav className={`navbar navbar-expand-lg fixed-top ${scrolled ? "navbar-scrolled" : "navbar-transparent"}`}>
       <div className="container">
-        <a className="navbar-brand we-logo" href="#top">
-          WE <span className="we-logo-accent">ENDURANCE</span>
+        <a className="navbar-brand" href="#top">
+          <img src="./Images/logo-transparent.png" alt="WE Endurance" className="we-navbar-logo" />
         </a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
@@ -46,6 +47,7 @@ function Navbar() {
             <li className="nav-item"><a className="nav-link" href="#about">Sobre nosotros</a></li>
             <li className="nav-item"><a className="nav-link" href="#coaches">Coach</a></li>
             <li className="nav-item"><a className="nav-link" href="#events">Eventos</a></li>
+            <li className="nav-item"><a className="nav-link" href="#gallery">Galería</a></li>
             <li className="nav-item"><a className="nav-link" href="#results">Resultados</a></li>
             <li className="nav-item"><a className="nav-link" href="#partners">Convenios</a></li>
             <li className="nav-item"><a className="nav-link" href="#contact">Contacto</a></li>
@@ -73,6 +75,7 @@ function Hero() {
       <div className="container position-relative text-center text-white" style={{paddingTop: "24vh", paddingBottom: "4rem"}}>
         <div className="we-hero-eyebrow">Triatlón · Running · Ciclismo · Natación</div>
         <h1 className="display-1 we-hero-title">WE ENDURANCE</h1>
+        <div className="we-hero-tagline">WE <em>are</em> ENDURANCE</div>
         <div className="we-hero-divider" />
         <p className="we-hero-subtitle">Comunidad · Técnica · Rendimiento</p>
         <div className="we-hero-btns d-flex justify-content-center gap-3 mt-4 flex-wrap">
@@ -152,12 +155,12 @@ function About() {
         <div className="row align-items-center g-4">
           <div className="col-lg-6">
             <div className="we-eyebrow-label-dark mb-2">NOSOTROS</div>
-            <h2 className="fw-bold">Sobre WE Endurance</h2>
-            <p className="text-muted mt-3">
+            <h2 className="fw-bold text-white">Sobre WE Endurance</h2>
+            <p className="text-white-50 mt-3">
               Somos un equipo de atletas que entiende el deporte como <strong>estilo de vida</strong>.
               Como atletas creemos en todos los beneficios que brinda el deporte tanto físicos como mentales.
             </p>
-            <p className="text-muted">
+            <p className="text-white-50">
               En WE Endurance no solo entrenas, perteneces a una comunidad que entiende que el verdadero
               rendimiento nace del compromiso diario y del respaldo colectivo. Aquí cada atleta importa,
               cada proceso es individualizado y cada logro se celebra en equipo.
@@ -171,12 +174,12 @@ function About() {
           </div>
           <div className="col-lg-6">
             <div className="we-card p-4 p-lg-5">
-              <h5 className="fw-bold mb-3">Nuestra metodología</h5>
-              <p className="text-muted small mb-3">
+              <h5 className="fw-bold mb-3 text-white">Nuestra metodología</h5>
+              <p className="text-white-50 small mb-3">
                 Trabajamos con un método basado en evidencia científica, adaptado a la realidad
                 de cada atleta y enfocado en generar progresos medibles y sostenibles. Analizamos:
               </p>
-              <ul className="mb-0 text-muted">
+              <ul className="mb-0 text-white-50">
                 <li>Volumen e intensidad</li>
                 <li>Distribución por zonas de entrenamiento</li>
                 <li>Tendencias de rendimiento</li>
@@ -186,7 +189,7 @@ function About() {
                 <a className="btn we-btn-whatsapp w-100 py-2" href={WA_LINK} target="_blank" rel="noreferrer">
                   💬 Quiero unirme por WhatsApp
                 </a>
-                <small className="d-block text-center text-muted mt-2">
+                <small className="d-block text-center text-white-50 mt-2">
                   Respuesta rápida · Cupos limitados por grupo
                 </small>
               </div>
@@ -201,9 +204,9 @@ function About() {
 function Feature({ title, desc }) {
   return (
     <div className="col-sm-6">
-      <div className="p-3 border rounded-4 h-100">
-        <div className="fw-semibold">{title}</div>
-        <div className="text-muted small mt-1">{desc}</div>
+      <div className="p-3 we-feature-card h-100">
+        <div className="fw-semibold text-white">{title}</div>
+        <div className="text-white-50 small mt-1">{desc}</div>
       </div>
     </div>
   );
@@ -218,8 +221,7 @@ function CoachBio() {
     "Entrenador de Triatlón Nivel 1, Federación Mexicana de Triatlón",
   ];
 
-  // Cambia a true cuando tengas la foto en ./images/coach.jpg
-  const hasPhoto = false;
+  const hasPhoto = true;
 
   return (
     <section id="coaches" className="py-5 we-section-dark">
@@ -227,13 +229,13 @@ function CoachBio() {
         <div className="row align-items-center g-5">
           {hasPhoto && (
             <div className="col-lg-5 text-center">
-              <img src="./images/coach.jpg" className="we-coach-photo" alt="Guillermo González Riestra" />
+              <img src="./Images/coach.png" className="we-coach-photo" alt="Guillermo González Riestra" />
             </div>
           )}
           <div className={hasPhoto ? "col-lg-7" : "col-12"}>
             <div className="we-eyebrow-label mb-3">HEAD COACH & FOUNDER</div>
             <h2 className="fw-bold text-white mb-1">
-              Guillermo <span className="we-text-blue">González Riestra</span>
+              Guillermo <span className="we-text-green">González Riestra</span>
             </h2>
             <p className="text-white-50 mt-3 mb-4" style={{maxWidth: hasPhoto ? "100%" : 640}}>
               Más de 45 años de experiencia personal practicando deportes de resistencia.
@@ -258,41 +260,6 @@ function CoachBio() {
   );
 }
 
-/* ─── ENTRENAMIENTOS ─────────────────────────────────────────── */
-function Training() {
-  const disciplines = [
-    { icon: "🏊", name: "Natación", days: "Mar, Jue, Sáb", level: "Todos los niveles", desc: "Técnica, resistencia y eficiencia en aguas abiertas." },
-    { icon: "🚴", name: "Ciclismo", days: "Lun, Mié, Dom", level: "Principiante a avanzado", desc: "Potencia, cadencia y estrategia en ruta." },
-    { icon: "🏃", name: "Carrera", days: "Mar, Jue, Vie", level: "Todos los niveles", desc: "Técnica de pisada, ritmo y fondos." },
-  ];
-
-  return (
-    <section id="training" className="py-5 we-section">
-      <div className="container py-4">
-        <div className="text-center mb-5">
-          <div className="we-eyebrow-label-dark mb-2">PROGRAMA</div>
-          <h2 className="fw-bold">Entrenamientos</h2>
-          <p className="text-muted mt-2 mx-auto" style={{maxWidth: 560}}>
-            Programación integral que cubre las tres disciplinas, transiciones y fuerza.
-          </p>
-        </div>
-        <div className="row g-4">
-          {disciplines.map((d) => (
-            <div className="col-md-4" key={d.name}>
-              <div className="we-training-card h-100 p-4 rounded-4">
-                <div className="we-training-icon mb-3">{d.icon}</div>
-                <h5 className="fw-bold mb-1">{d.name}</h5>
-                <div className="text-muted small mb-1">📅 {d.days}</div>
-                <div className="text-muted small mb-3">📊 {d.level}</div>
-                <p className="text-muted mb-0">{d.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ─── EVENTOS SOCIALES ───────────────────────────────────────── */
 function Events() {
@@ -308,10 +275,10 @@ function Events() {
       <div className="container py-4">
         <div className="text-center mb-5">
           <div className="we-eyebrow-label-dark mb-2">COMUNIDAD</div>
-          <h2 className="fw-bold">
+          <h2 className="fw-bold text-white">
             Más que <span className="we-text-green">entrenar</span>
           </h2>
-          <p className="text-muted mt-2 mx-auto" style={{maxWidth: 520}}>
+          <p className="text-white-50 mt-2 mx-auto" style={{maxWidth: 520}}>
             En WE Endurance entrenamos duro, pero también vivimos bien. El equipo se convierte en familia.
           </p>
         </div>
@@ -320,8 +287,8 @@ function Events() {
             <div className="col-md-6 col-lg-3" key={e.title}>
               <div className="we-event-card-light h-100 p-4 rounded-4 text-center">
                 <div className="we-event-icon mb-3">{e.icon}</div>
-                <h6 className="fw-bold mb-2">{e.title}</h6>
-                <p className="text-muted small mb-0">{e.desc}</p>
+                <h6 className="fw-bold mb-2 text-white">{e.title}</h6>
+                <p className="text-white-50 small mb-0">{e.desc}</p>
               </div>
             </div>
           ))}
@@ -334,8 +301,8 @@ function Events() {
 /* ─── RESULTADOS 2025 ────────────────────────────────────────── */
 function Results() {
   const events = [
-    { name: "IM 70.3",           total: 10, first: 6 },
-    { name: "Maratón",           total: 10, first: 9 },
+    { name: "IM 70.3",           total: 10, first: 4 },
+    { name: "Maratón",           total: 12, first: 9 },
     { name: "Medio maratón",     total: 25, first: null },
     { name: "Carreras ciclistas",total: 25, first: 2 },
     { name: "Astri",             total: 4,  first: null },
@@ -376,7 +343,7 @@ function Results() {
         </div>
 
         <div className="row g-4 justify-content-center">
-          <StatCard number="74" label="Atletas en competencia" />
+          <StatCard number="76" label="Atletas en competencia" />
           <StatCard number="17" label="Primeras veces" />
           <StatCard number="5" label="Eventos distintos" />
           <StatCard number="100%" label="Finishers" />
@@ -400,8 +367,8 @@ function Partners() {
       <div className="container py-4">
         <div className="text-center mb-5">
           <div className="we-eyebrow-label-dark mb-2">PARTNERS</div>
-          <h2 className="fw-bold">Nuestros Convenios</h2>
-          <p className="text-muted mt-2 mx-auto" style={{maxWidth: 520}}>
+          <h2 className="fw-bold text-white">Nuestros Convenios</h2>
+          <p className="text-white-50 mt-2 mx-auto" style={{maxWidth: 520}}>
             Beneficios exclusivos con marcas que usamos y en las que confiamos.
           </p>
         </div>
@@ -411,7 +378,7 @@ function Partners() {
               <div className="we-partner-tile-v2 d-flex flex-column align-items-center justify-content-center text-center p-4">
                 {/* Reemplazar con <img src="./images/logo-X.png" /> cuando tengas los logos */}
                 <div className="we-partner-logo-placeholder mb-2">{p.name}</div>
-                <div className="text-muted small">{p.desc}</div>
+                <div className="text-white-50 small">{p.desc}</div>
               </div>
             </div>
           ))}
@@ -439,9 +406,9 @@ function Contact() {
           Únete a WE Endurance y comienza tu camino. Cupos limitados por grupo.
         </p>
         <div className="row g-4 justify-content-center mb-5">
-          <ContactCard icon="💬" title="WhatsApp" value="Escríbenos directo" link={WA_LINK} linkLabel="Abrir WhatsApp" green />
-          <ContactCard icon="📸" title="Instagram" value="@weendurance" link="https://instagram.com/weendurance" linkLabel="Ver perfil" />
-          <ContactCard icon="🎵" title="TikTok" value="@weendurance" link="https://tiktok.com/@weendurance" linkLabel="Ver videos" />
+          <ContactCard icon="💬" title="WhatsApp" value="Escríbenos directo" link={WA_LINK} linkLabel="Abrir WhatsApp" variant="green" />
+          <ContactCard icon="📸" title="Instagram" value="@weendurance" link="https://instagram.com/weendurance" linkLabel="Ver perfil" variant="pink" />
+          <ContactCard icon="🎵" title="TikTok" value="@weendurance" link="https://tiktok.com/@weendurance" linkLabel="Ver videos" variant="blue" />
         </div>
         <a className="btn we-btn-whatsapp btn-lg px-5" href={WA_LINK} target="_blank" rel="noreferrer">
           💬 Escríbenos por WhatsApp
@@ -451,18 +418,104 @@ function Contact() {
   );
 }
 
-function ContactCard({ icon, title, value, link, linkLabel, green }) {
+function ContactCard({ icon, title, value, link, linkLabel, variant }) {
+  const cardClass = variant === 'green' ? 'we-contact-card-green'
+    : variant === 'pink' ? 'we-contact-card-pink'
+    : variant === 'blue' ? 'we-contact-card-blue'
+    : 'we-contact-card';
   return (
     <div className="col-12 col-sm-6 col-md-4">
-      <div className="we-contact-card p-4 rounded-4 h-100">
+      <div className={`${cardClass} p-4 rounded-4 h-100`}>
         <div className="we-contact-icon mb-3">{icon}</div>
-        <div className="fw-bold text-white mb-1">{title}</div>
-        <div className="text-white-50 small mb-3">{value}</div>
-        <a className={`btn btn-sm w-100 ${green ? "we-btn-whatsapp" : "btn-outline-light"}`} href={link} target="_blank" rel="noreferrer">
+        <div className="fw-bold mb-1 text-white">{title}</div>
+        <div className="small mb-3 text-white-50">{value}</div>
+        <a className="btn btn-sm btn-outline-light w-100" href={link} target="_blank" rel="noreferrer">
           {linkLabel}
         </a>
       </div>
     </div>
+  );
+}
+
+/* ─── GALERÍA ────────────────────────────────────────────────── */
+function Gallery() {
+  const slides = [
+    ["./Images/1.png",  "./Images/2.png",  "./Images/3.png",
+     "./Images/4.png",  "./Images/5.png",  "./Images/6.png"],
+    ["./Images/7.png",  "./Images/8.png",  "./Images/9.png",
+     "./Images/10.png", "./Images/11.png", "./Images/12.png"],
+    ["./Images/13.png", "./Images/14.png", "./Images/15.png",
+     "./Images/16.png", "./Images/17.png", "./Images/18.png"],
+  ];
+
+  const [current, setCurrent] = useState(0);
+  const [animating, setAnimating] = useState(false);
+  const [direction, setDirection] = useState(null);
+
+  function goTo(index) {
+    if (animating || index === current) return;
+    setDirection(index > current ? "left" : "right");
+    setAnimating(true);
+    setTimeout(() => {
+      setCurrent(index);
+      setAnimating(false);
+      setDirection(null);
+    }, 420);
+  }
+
+  const prev = () => goTo(current === 0 ? slides.length - 1 : current - 1);
+  const next = () => goTo(current === slides.length - 1 ? 0 : current + 1);
+
+  return (
+    <section id="gallery" className="py-5 we-section">
+      <div className="container py-4">
+        <div className="text-center mb-5">
+          <div className="we-eyebrow-label-dark mb-2">COMUNIDAD</div>
+          <h2 className="fw-bold text-white">
+            Nuestra <span className="we-text-green">galería</span>
+          </h2>
+          <p className="text-white-50 mt-2 mx-auto" style={{maxWidth: 520}}>
+            Momentos del equipo dentro y fuera de la pista.
+          </p>
+        </div>
+
+        <div className="we-gallery-wrapper position-relative">
+          <div className={`we-gallery-slide ${animating ? `we-gallery-exit-${direction}` : ""}`}>
+            <div className="row g-3">
+              {slides[current].map((src, i) => (
+                <div className="col-6 col-md-4" key={i}>
+                  <div className="we-gallery-item">
+                    <img src={src} alt={`WE Endurance foto ${i + 1}`} loading="lazy" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <button className="we-gallery-arrow we-gallery-arrow-prev" onClick={prev} aria-label="Anterior">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <button className="we-gallery-arrow we-gallery-arrow-next" onClick={next} aria-label="Siguiente">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="we-gallery-dots mt-4 d-flex justify-content-center gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              className={`we-gallery-dot ${i === current ? "active" : ""}`}
+              onClick={() => goTo(i)}
+              aria-label={`Slide ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -473,9 +526,7 @@ function Footer() {
       <div className="container">
         <div className="row align-items-center g-3">
           <div className="col-md-4">
-            <div className="we-logo fw-bold" style={{fontSize:"1.1rem"}}>
-              WE <span className="we-logo-accent">ENDURANCE</span>
-            </div>
+            <img src="./Images/logo-transparent.png" alt="WE Endurance" className="we-footer-logo" />
             <div className="text-white-50 small mt-1">Ciudad de México</div>
           </div>
           <div className="col-md-4 text-md-center">

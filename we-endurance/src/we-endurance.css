@@ -1,5 +1,6 @@
 /* ─── GOOGLE FONTS ─────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=neue-power@400,500,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&family=Barlow:wght@300;400;500;600;700&display=swap');
 
 /* ─── BRAND VARIABLES ───────────────────────────────────────── */
 :root {
@@ -47,9 +48,15 @@ html, body {
   border-bottom: 1px solid rgba(193,255,0,0.15);
 }
 
-/* Logo */
+/* Logo navbar (PNG) */
+.we-navbar-logo {
+  height: 120px;
+  width: auto;
+}
+
+/* Logo footer (texto) */
 .we-logo {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Neue Power', 'Barlow Condensed', sans-serif;
   font-weight: 900;
   font-size: 1.35rem;
   letter-spacing: 2px;
@@ -60,6 +67,12 @@ html, body {
 
 .we-logo-accent {
   color: var(--we-green);
+}
+
+/* Logo footer (PNG) */
+.we-footer-logo {
+  height: 44px;
+  width: auto;
 }
 
 /* Nav links */
@@ -195,7 +208,7 @@ html, body {
 }
 
 .we-hero-title {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Neue Power', 'Barlow Condensed', sans-serif;
   font-weight: 900;
   letter-spacing: 8px;
   text-transform: uppercase;
@@ -220,6 +233,23 @@ html, body {
 
 @media (max-width: 576px) {
   .we-hero-subtitle { font-size: 0.95rem; letter-spacing: 1.5px; }
+}
+
+.we-hero-tagline {
+  font-family: 'Neue Power', 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-top: 10px;
+  animation: fadeUp 0.7s 0.22s ease both;
+}
+
+.we-hero-tagline em {
+  font-style: italic;
+  color: var(--we-green);
+  font-weight: 700;
 }
 
 .we-hero-divider {
@@ -321,8 +351,8 @@ html, body {
 }
 
 /* ─── SECCIONES ─────────────────────────────────────────────── */
-.we-section      { background: #fff; }
-.we-section-dark { background: var(--we-dark); }
+.we-section      { background: #0f0f0f; }
+.we-section-dark { background: #000000; }
 
 /* ─── TEXTOS Y LABELS ───────────────────────────────────────── */
 .we-eyebrow-label {
@@ -344,7 +374,7 @@ html, body {
 }
 
 .we-text-green  { color: var(--we-green); }
-.we-text-blue   { color: var(--we-green); } /* redirige al verde de marca */
+.we-text-blue   { color: var(--we-blue); }
 .we-text-pink   { color: var(--we-pink); }
 
 /* ─── FOR EVERYONE ──────────────────────────────────────────── */
@@ -367,7 +397,7 @@ html, body {
 }
 
 .we-stat-number {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Neue Power', 'Barlow Condensed', sans-serif;
   font-size: 2.6rem;
   font-weight: 900;
   color: var(--we-green);
@@ -382,8 +412,19 @@ html, body {
 
 /* ─── ABOUT / CARD ──────────────────────────────────────────── */
 .we-card {
-  background: #f8f9fa;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 16px;
+}
+
+.we-feature-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 1rem;
+  transition: border-color 0.2s ease;
+}
+.we-feature-card:hover {
+  border-color: rgba(193,255,0,0.35);
 }
 
 /* ─── COACH BIO ─────────────────────────────────────────────── */
@@ -426,8 +467,8 @@ html, body {
 
 /* ─── PARTNERS ──────────────────────────────────────────────── */
 .we-partner-tile-v2 {
-  background: #f4f6f8;
-  border: 1px solid #e8eaed;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 16px;
   min-height: 120px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -439,11 +480,11 @@ html, body {
 }
 
 .we-partner-logo-placeholder {
-  font-family: 'Barlow Condensed', sans-serif;
+  font-family: 'Neue Power', 'Barlow Condensed', sans-serif;
   font-size: 1.3rem;
   font-weight: 800;
   letter-spacing: 1px;
-  color: #111;
+  color: var(--we-white);
 }
 
 /* ─── CONTACT CARDS ─────────────────────────────────────────── */
@@ -538,10 +579,145 @@ html, body {
   background: rgba(193,255,0,0.05);
 }
 
+/* ─── COLORED CARD VARIANTS ─────────────────────────────────── */
+.we-contact-card-green {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(37,211,102,0.4);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.we-contact-card-green:hover {
+  border-color: #25D366;
+  box-shadow: 0 4px 24px rgba(37,211,102,0.2);
+}
+.we-contact-card-green .we-contact-icon { color: #25D366; }
+
+.we-contact-card-pink {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,31,159,0.4);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.we-contact-card-pink:hover {
+  border-color: var(--we-pink);
+  box-shadow: 0 4px 24px rgba(255,31,159,0.2);
+}
+.we-contact-card-pink .we-contact-icon { color: var(--we-pink); }
+
+.we-contact-card-blue {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(47,49,245,0.5);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.we-contact-card-blue:hover {
+  border-color: var(--we-blue);
+  box-shadow: 0 4px 24px rgba(47,49,245,0.25);
+}
+.we-contact-card-blue .we-contact-icon { color: var(--we-blue); }
+
+/* ─── GALLERY ───────────────────────────────────────────────── */
+.we-gallery-wrapper {
+  overflow: hidden;
+}
+
+.we-gallery-slide {
+  transition: opacity 0.42s ease, transform 0.42s ease;
+}
+
+.we-gallery-exit-left {
+  animation: galleryExitLeft 0.42s ease forwards;
+}
+
+.we-gallery-exit-right {
+  animation: galleryExitRight 0.42s ease forwards;
+}
+
+@keyframes galleryExitLeft {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(-40px); }
+}
+
+@keyframes galleryExitRight {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(40px); }
+}
+
+.we-gallery-item {
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: border-color 0.22s ease, transform 0.22s ease;
+}
+
+.we-gallery-item:hover {
+  border-color: rgba(193,255,0,0.4);
+  transform: scale(1.02);
+}
+
+.we-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.we-gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.7);
+  border: 1px solid rgba(193,255,0,0.3);
+  color: var(--we-green);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  padding: 0;
+}
+
+.we-gallery-arrow:hover {
+  background: rgba(193,255,0,0.15);
+  border-color: var(--we-green);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.we-gallery-arrow-prev { left: -22px; }
+.we-gallery-arrow-next { right: -22px; }
+
+@media (max-width: 576px) {
+  .we-gallery-arrow-prev { left: 4px; }
+  .we-gallery-arrow-next { right: 4px; }
+}
+
+.we-gallery-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.we-gallery-dot.active {
+  background: var(--we-green);
+  transform: scale(1.3);
+}
+
+.we-gallery-dot:hover {
+  background: rgba(193,255,0,0.5);
+}
+
 /* ─── EVENT CARD LIGHT ──────────────────────────────────────── */
 .we-event-card-light {
-  background: #f8f9fa;
-  border: 1px solid #e8eaed;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
   transition: border-color 0.22s ease, transform 0.22s ease;
 }
 
