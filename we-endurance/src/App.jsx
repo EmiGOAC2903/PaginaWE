@@ -3,6 +3,7 @@ import "./we-endurance.css";
 
 const WA_NUMBER = "5215548800849"; // ← Reemplaza con el número real de WhatsApp
 const WA_LINK = `https://wa.me/${WA_NUMBER}?text=Hola%2C%20me%20interesa%20unirme%20a%20WE%20Endurance`;
+const BASE = import.meta.env.BASE_URL;
 
 export default function App() {
   return (
@@ -37,7 +38,7 @@ function Navbar() {
     <nav className={`navbar navbar-expand-lg fixed-top ${scrolled ? "navbar-scrolled" : "navbar-transparent"}`}>
       <div className="container">
         <a className="navbar-brand" href="#top">
-          <img src="./Images/logo-transparent.png" alt="WE Endurance" className="we-navbar-logo" />
+          <img src={BASE + "Images/logo-transparent.png"} alt="WE Endurance" className="we-navbar-logo" />
         </a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
@@ -229,7 +230,7 @@ function CoachBio() {
         <div className="row align-items-center g-5">
           {hasPhoto && (
             <div className="col-lg-5 text-center">
-              <img src="./Images/coach.png" className="we-coach-photo" alt="Guillermo González Riestra" />
+              <img src={BASE + "Images/coach.png"} className="we-coach-photo" alt="Guillermo González Riestra" />
             </div>
           )}
           <div className={hasPhoto ? "col-lg-7" : "col-12"}>
@@ -440,12 +441,12 @@ function ContactCard({ icon, title, value, link, linkLabel, variant }) {
 /* ─── GALERÍA ────────────────────────────────────────────────── */
 function Gallery() {
   const slides = [
-    ["./Images/1.png",  "./Images/2.png",  "./Images/3.png",
-     "./Images/4.png",  "./Images/5.png",  "./Images/6.png"],
-    ["./Images/7.png",  "./Images/8.png",  "./Images/9.png",
-     "./Images/10.png", "./Images/11.png", "./Images/12.png"],
-    ["./Images/13.png", "./Images/14.png", "./Images/15.png",
-     "./Images/16.png", "./Images/17.png", "./Images/18.png"],
+    [BASE+"Images/1.png",  BASE+"Images/2.png",  BASE+"Images/3.png",
+     BASE+"Images/4.png",  BASE+"Images/5.png",  BASE+"Images/6.png"],
+    [BASE+"Images/7.png",  BASE+"Images/8.png",  BASE+"Images/9.png",
+     BASE+"Images/10.png", BASE+"Images/11.png", BASE+"Images/12.png"],
+    [BASE+"Images/13.png", BASE+"Images/14.png", BASE+"Images/15.png",
+     BASE+"Images/16.png", BASE+"Images/17.png", BASE+"Images/18.png"],
   ];
 
   const [current, setCurrent] = useState(0);
@@ -526,7 +527,7 @@ function Footer() {
       <div className="container">
         <div className="row align-items-center g-3">
           <div className="col-md-4">
-            <img src="./Images/logo-transparent.png" alt="WE Endurance" className="we-footer-logo" />
+            <img src={BASE + "Images/logo-transparent.png"} alt="WE Endurance" className="we-footer-logo" />
             <div className="text-white-50 small mt-1">Ciudad de México</div>
           </div>
           <div className="col-md-4 text-md-center">
