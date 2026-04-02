@@ -97,12 +97,12 @@ function Hero() {
 /* ─── PARA TODOS ──────────────────────────────────────────────── */
 function ForEveryone() {
   const profiles = [
-    { icon: "🩺", label: "Médicos" },
-    { icon: "⚖️", label: "Abogados" },
-    { icon: "💼", label: "Empresarios" },
-    { icon: "👩‍💻", label: "Ingenieros" },
-    { icon: "🎓", label: "Estudiantes" },
-    { icon: "👨‍👩‍👧", label: "Papás y mamás" },
+    "Médicos",
+    "Abogados",
+    "Empresarios",
+    "Ingenieros",
+    "Estudiantes",
+    "Papás y mamás",
   ];
 
   return (
@@ -118,10 +118,9 @@ function ForEveryone() {
         </p>
         <div className="row g-3 justify-content-center mb-5">
           {profiles.map((p) => (
-            <div className="col-6 col-sm-4 col-md-2" key={p.label}>
+            <div className="col-6 col-sm-4 col-md-2" key={p}>
               <div className="we-profile-chip">
-                <div className="we-profile-icon">{p.icon}</div>
-                <div className="text-white-50 small mt-1">{p.label}</div>
+                <div className="text-white fw-semibold">{p}</div>
               </div>
             </div>
           ))}
@@ -265,10 +264,10 @@ function CoachBio() {
 /* ─── EVENTOS SOCIALES ───────────────────────────────────────── */
 function Events() {
   const events = [
-    { icon: "🌅", title: "Desayunos post-entreno", desc: "Después de cada sesión larga, el equipo se reúne a recargar. La recuperación también es social." },
-    { icon: "🎉", title: "Fiestas del equipo", desc: "Celebramos logros, cumpleaños y temporadas. Somos más que un club de entrenamiento." },
-    { icon: "🎄", title: "Posada WE", desc: "La posada anual es uno de los eventos más esperados. Música, comida y comunidad." },
-    { icon: "🏅", title: "Competencias en equipo", desc: "Vamos juntos a competencias. Siempre hay equipo WE en la salida." },
+    { img: "event-desayunos.png", title: "Desayunos post-entreno", desc: "Después de cada sesión larga, el equipo se reúne a recargar. La recuperación también es social." },
+    { img: "event-fiestas.png",   title: "Fiestas del equipo",     desc: "Celebramos logros, cumpleaños y temporadas. Somos más que un club de entrenamiento." },
+    { img: "event-posada.png",    title: "Posada WE",              desc: "La posada anual es uno de los eventos más esperados. Música, comida y comunidad." },
+    { img: "event-competencias.png", title: "Competencias en equipo", desc: "Vamos juntos a competencias. Siempre hay equipo WE en la salida." },
   ];
 
   return (
@@ -286,10 +285,14 @@ function Events() {
         <div className="row g-4">
           {events.map((e) => (
             <div className="col-md-6 col-lg-3" key={e.title}>
-              <div className="we-event-card-light h-100 p-4 rounded-4 text-center">
-                <div className="we-event-icon mb-3">{e.icon}</div>
-                <h6 className="fw-bold mb-2 text-white">{e.title}</h6>
-                <p className="text-white-50 small mb-0">{e.desc}</p>
+              <div className="we-event-card-light h-100 rounded-4 overflow-hidden text-center">
+                <div className="we-event-photo">
+                  <img src={BASE + "Images/" + e.img} alt={e.title} />
+                </div>
+                <div className="p-4">
+                  <h6 className="fw-bold mb-2 text-white">{e.title}</h6>
+                  <p className="text-white-50 small mb-0">{e.desc}</p>
+                </div>
               </div>
             </div>
           ))}
@@ -357,10 +360,10 @@ function Results() {
 /* ─── CONVENIOS ──────────────────────────────────────────────── */
 function Partners() {
   const partners = [
-    { name: "Explo", desc: "Equipamiento y accesorios deportivos" },
-    { name: "Fuel2Go", desc: "Nutrición deportiva oficial" },
-    { name: "Kumi", desc: "Uniformes oficiales WE Endurance" },
-    { name: "Orlando", desc: "Aliado de rendimiento" },
+    { name: "Explo",   img: "partner-explo.png",   desc: "Equipamiento y accesorios deportivos" },
+    { name: "Fuel2Go", img: "partner-fuel2go.png",  desc: "Nutrición deportiva oficial" },
+    { name: "Kumi",    img: "partner-kumi.png",     desc: "Uniformes oficiales WE Endurance" },
+    { name: "Orlando", img: "partner-orlando.png",  desc: "Aliado de rendimiento" },
   ];
 
   return (
@@ -377,8 +380,9 @@ function Partners() {
           {partners.map((p) => (
             <div className="col-6 col-md-3" key={p.name}>
               <div className="we-partner-tile-v2 d-flex flex-column align-items-center justify-content-center text-center p-4">
-                {/* Reemplazar con <img src="./images/logo-X.png" /> cuando tengas los logos */}
-                <div className="we-partner-logo-placeholder mb-2">{p.name}</div>
+                <div className="we-partner-img-wrap mb-3">
+                  <img src={BASE + "Images/" + p.img} alt={p.name} />
+                </div>
                 <div className="text-white-50 small">{p.desc}</div>
               </div>
             </div>
