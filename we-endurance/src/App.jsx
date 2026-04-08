@@ -448,11 +448,12 @@ function ContactCard({ icon, title, value, link, linkLabel, variant }) {
 /* ─── GALERÍA ────────────────────────────────────────────────── */
 function Gallery() {
   const slides = [
-    [BASE+"Images/Galeria/Foto1.jpeg",  BASE+"Images/Galeria/Foto2.jpeg",  BASE+"Images/Galeria/Foto3.jpeg",
-     BASE+"Images/Galeria/Foto5.jpeg",  BASE+"Images/Galeria/Foto6.jpeg",  BASE+"Images/Galeria/Foto7.jpeg"],
-    [BASE+"Images/Galeria/Foto8.jpeg",  BASE+"Images/Galeria/Foto9.jpeg",  BASE+"Images/Galeria/Foto10.jpeg",
-     BASE+"Images/Galeria/Foto11.jpeg", BASE+"Images/Galeria/Foto12.jpeg", BASE+"Images/Galeria/Foto13.jpeg"],
-    [BASE+"Images/Galeria/Foto14.jpeg", BASE+"Images/Galeria/Foto15.jpeg", BASE+"Images/Galeria/Foto4.jpeg"],
+    [BASE+"Images/Galeria/Foto18.jpeg", BASE+"Images/Galeria/Foto2.jpeg",  BASE+"Images/Galeria/Foto3.jpeg",
+     BASE+"Images/Galeria/Foto4.jpeg",  BASE+"Images/Galeria/Foto5.jpeg",  BASE+"Images/Galeria/Foto6.jpeg"],
+    [BASE+"Images/Galeria/Foto7.jpeg",  BASE+"Images/Galeria/Foto8.jpeg",  BASE+"Images/Galeria/Foto9.jpeg",
+     BASE+"Images/Galeria/Foto10.jpeg", BASE+"Images/Galeria/Foto11.jpeg", BASE+"Images/Galeria/Foto12.jpeg"],
+    [BASE+"Images/Galeria/Foto13.jpeg", BASE+"Images/Galeria/Foto14.jpeg", BASE+"Images/Galeria/Foto15.jpeg",
+     BASE+"Images/Galeria/Foto16.jpeg", BASE+"Images/Galeria/Foto17.jpeg", BASE+"Images/Galeria/Foto1.jpeg"],
   ];
 
   const [current, setCurrent] = useState(0);
