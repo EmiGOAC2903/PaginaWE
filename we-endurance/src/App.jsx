@@ -264,10 +264,10 @@ function CoachBio() {
 /* ─── EVENTOS SOCIALES ───────────────────────────────────────── */
 function Events() {
   const events = [
-    { img: "event-desayunos.png", title: "Desayunos post-entreno", desc: "Después de cada sesión larga, el equipo se reúne a recargar. La recuperación también es social." },
-    { img: "event-fiestas.png",   title: "Fiestas del equipo",     desc: "Celebramos logros, cumpleaños y temporadas. Somos más que un club de entrenamiento." },
-    { img: "event-posada.png",    title: "Posada WE",              desc: "La posada anual es uno de los eventos más esperados. Música, comida y comunidad." },
-    { img: "event-competencias.png", title: "Competencias en equipo", desc: "Vamos juntos a competencias. Siempre hay equipo WE en la salida." },
+    { img: "Eventos/event-desayunos.jpeg",    title: "Desayunos post-entreno",  desc: "Después de cada sesión larga, el equipo se reúne a recargar. La recuperación también es social." },
+    { img: "Eventos/event-fiestas.jpeg",      title: "Fiestas del equipo",      desc: "Celebramos logros, cumpleaños y temporadas. Somos más que un club de entrenamiento." },
+    { img: "Eventos/event-posada.jpeg",       title: "Posada WE",               desc: "La posada anual es uno de los eventos más esperados. Música, comida y comunidad." },
+    { img: "Eventos/event-competencias.jpeg", title: "Competencias en equipo",  desc: "Vamos juntos a competencias. Siempre hay equipo WE en la salida." },
   ];
 
   return (
@@ -360,10 +360,10 @@ function Results() {
 /* ─── CONVENIOS ──────────────────────────────────────────────── */
 function Partners() {
   const partners = [
-    { name: "Explo",   img: "partner-explo.png",   desc: "Equipamiento y accesorios deportivos" },
-    { name: "Fuel2Go", img: "partner-fuel2go.png",  desc: "Nutrición deportiva oficial" },
-    { name: "Kumi",    img: "partner-kumi.png",     desc: "Uniformes oficiales WE Endurance" },
-    { name: "Orlando", img: "partner-orlando.png",  desc: "Aliado de rendimiento" },
+    { name: "Explo",   img: "Partners/partner-explo.jpeg",   desc: "Equipamiento y accesorios deportivos" },
+    { name: "Fuel2Go", img: "Partners/partner-fuel2go.jpeg",  desc: "Nutrición deportiva oficial" },
+    { name: "Kumi",    img: "Partners/partner-kumi.jpeg",     desc: "Uniformes oficiales WE Endurance" },
+    { name: "Orlando", img: "Partners/partner-orlando.jpeg",  desc: "Aliado de rendimiento" },
   ];
 
   return (
@@ -382,6 +382,9 @@ function Partners() {
               <div className="we-partner-tile-v2 d-flex flex-column align-items-center justify-content-center text-center p-4">
                 <div className="we-partner-img-wrap mb-3">
                   <img src={BASE + "Images/" + p.img} alt={p.name} />
+                  <div className="we-partner-img-overlay">
+                    <span>{p.name}</span>
+                  </div>
                 </div>
                 <div className="text-white-50 small">{p.desc}</div>
               </div>
@@ -445,12 +448,11 @@ function ContactCard({ icon, title, value, link, linkLabel, variant }) {
 /* ─── GALERÍA ────────────────────────────────────────────────── */
 function Gallery() {
   const slides = [
-    [BASE+"Images/1.png",  BASE+"Images/2.png",  BASE+"Images/3.png",
-     BASE+"Images/4.png",  BASE+"Images/5.png",  BASE+"Images/6.png"],
-    [BASE+"Images/7.png",  BASE+"Images/8.png",  BASE+"Images/9.png",
-     BASE+"Images/10.png", BASE+"Images/11.png", BASE+"Images/12.png"],
-    [BASE+"Images/13.png", BASE+"Images/14.png", BASE+"Images/15.png",
-     BASE+"Images/16.png", BASE+"Images/17.png", BASE+"Images/18.png"],
+    [BASE+"Images/Galeria/Foto1.jpeg",  BASE+"Images/Galeria/Foto2.jpeg",  BASE+"Images/Galeria/Foto3.jpeg",
+     BASE+"Images/Galeria/Foto5.jpeg",  BASE+"Images/Galeria/Foto6.jpeg",  BASE+"Images/Galeria/Foto7.jpeg"],
+    [BASE+"Images/Galeria/Foto8.jpeg",  BASE+"Images/Galeria/Foto9.jpeg",  BASE+"Images/Galeria/Foto10.jpeg",
+     BASE+"Images/Galeria/Foto11.jpeg", BASE+"Images/Galeria/Foto12.jpeg", BASE+"Images/Galeria/Foto13.jpeg"],
+    [BASE+"Images/Galeria/Foto14.jpeg", BASE+"Images/Galeria/Foto15.jpeg", BASE+"Images/Galeria/Foto4.jpeg"],
   ];
 
   const [current, setCurrent] = useState(0);
